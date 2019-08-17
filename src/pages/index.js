@@ -373,7 +373,7 @@ export default () => (
             </label>
           </InputWrapper>
 
-          <SecondaryCallToAction className="a-btn a-btn--large">
+          <SecondaryCallToAction className="a-btn a-btn--large" type="submit">
             Submit
           </SecondaryCallToAction>
         </ContactForm>
