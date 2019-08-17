@@ -16,8 +16,8 @@ const pinLabelColors = (inputWrapper, value) => {
   }
 }
 
-export const initFloatingLabel = () => {
-  window.requestAnimationFrame(() => {
+export const initFloatingLabel = (context, document) => {
+  context.requestAnimationFrame(() => {
     const inputs = document.querySelectorAll(".a-input")
 
     const verifyValue = (input, label) => {
@@ -58,7 +58,9 @@ export const initFloatingLabel = () => {
 }
 
 const HandleInputEvents = () => {
-  initFloatingLabel()
+  if (typeof window !== "undefined" && typeof document !== "undefined") {
+    initFloatingLabel(window, document)
+  }
   return null
 }
 
