@@ -72,6 +72,7 @@ const Highlight = styled.span`
 const CallToAction = styled.a`
   margin: 50px 0;
   background: var(--color-sun-300);
+  color: var(--color-space-1000);
   border: 2px solid transparent;
 
   &:hover {
