@@ -2,10 +2,7 @@ import "../../static/reset.css"
 import "@magnetis/astro"
 import React from "react"
 import styled from "styled-components"
-
-const MOBILE_SIZE = "480px"
-const TABLET_SIZE = "768px"
-const DESKTOP_SIZE = "1200px"
+import HandleInputEvents from "../../static/input-label"
 
 const Container = styled.div`
   display: flex;
@@ -172,6 +169,24 @@ const SocialIcon = styled.img`
   }
 `
 
+const Contact = styled(HowItWorks)``
+const ContactForm = styled.form``
+
+const InputWrapper = styled.div`
+  width: 400px;
+  margin: 10px 0;
+
+  & > input:focus {
+    border-color: var(--color-sun-500);
+  }
+
+  & > input:focus + label {
+    color: var(--color-sun-500);
+  }
+`
+
+const Input = styled.input``
+
 export default () => (
   <Container>
     <Nav>
@@ -304,6 +319,39 @@ export default () => (
           </Profile>
         </WhoAreWeWrapper>
       </WhoAreWe>
+      <Contact>
+        <HandleInputEvents />
+        <h2 className="a-title--large">Contact us</h2>
+
+        <ContactForm>
+          <InputWrapper className="a-input a-input--large">
+            <Input id="name" type="text" aria-labelledby="name" />
+            <label id="name" htmlFor="name">
+              Name
+            </label>
+          </InputWrapper>
+          <InputWrapper className="a-input a-input--large">
+            <Input id="email" type="email" aria-labelledby="email" />
+            <label id="email" htmlFor="email">
+              Email
+            </label>
+          </InputWrapper>
+          <InputWrapper className="a-input a-input--large">
+            <Input
+              id="company-name"
+              type="text"
+              aria-labelledby="company-name"
+            />
+            <label id="company-name" htmlFor="company-name">
+              Company name
+            </label>
+          </InputWrapper>
+
+          <SecondaryCallToAction className="a-btn a-btn--large">
+            Submit
+          </SecondaryCallToAction>
+        </ContactForm>
+      </Contact>
     </Sections>
   </Container>
 )
