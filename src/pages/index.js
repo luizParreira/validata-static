@@ -352,13 +352,18 @@ export default () => (
           data-netlify="true"
         >
           <InputWrapper className="a-input a-input--large">
-            <Input id="name" type="text" aria-labelledby="name" />
+            <Input id="name" name="name" type="text" aria-labelledby="name" />
             <label id="name" htmlFor="name">
               Name
             </label>
           </InputWrapper>
           <InputWrapper className="a-input a-input--large">
-            <Input id="email" type="email" aria-labelledby="email" />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              aria-labelledby="email"
+            />
             <label id="email" htmlFor="email">
               Email
             </label>
@@ -367,6 +372,7 @@ export default () => (
             <Input
               id="company-name"
               type="text"
+              name="company-name"
               aria-labelledby="company-name"
             />
             <label id="company-name" htmlFor="company-name">
