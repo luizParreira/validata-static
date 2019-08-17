@@ -21,6 +21,7 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   padding: 20px;
+  z-index: 2;
 `
 
 const NavLink = styled.a`
@@ -72,9 +73,11 @@ const Highlight = styled.span`
 
 const CallToAction = styled.button`
   margin: 50px 0;
+  background: var(--color-sun-300);
+  border: 2px solid transparent;
+
   &:hover {
-    background-color: var(--color-sun-500);
-    border-color: var(--color-sun-300);
+    background: var(--color-sun-500);
   }
 `
 
@@ -110,6 +113,65 @@ const Arrow = styled.i`
   align-self: center;
 `
 
+const Pricing = styled(HowItWorks)``
+const PrincingWrapper = styled(Steps)``
+
+const PricingItem = styled.div`
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0 30px;
+  flex: 1;
+
+  background: var(--color-space-100);
+  background-clip: padding-box;
+  border: solid 3px transparent;
+  border-radius: 1em;
+  min-width: 300px;
+  & > * {
+    margin: 10px 0;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -3px;
+    border-radius: inherit;
+    background: var(--gradient-hoag);
+  }
+`
+
+const SecondaryCallToAction = styled(CallToAction)`
+  margin: 10px 0;
+`
+
+const WhoAreWe = styled(HowItWorks)``
+const WhoAreWeWrapper = styled(Steps)``
+const Profile = styled.div`
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin: 10px 0;
+  }
+`
+const ProfilePicture = styled.img`
+  border-radius: 50%;
+  max-width: 200px;
+  margin: 0 50px;
+`
+
+const SocialIcon = styled.img`
+  width: 48px;
+  margin: 0 10px;
+  &:hover {
+    opacity: 0.6;
+  }
+`
+
 export default () => (
   <Container>
     <Nav>
@@ -117,7 +179,9 @@ export default () => (
       <NavLink href="#how-it-works" className="a-btn a-btn--large">
         How it Works
       </NavLink>
-      <NavLink className="a-btn a-btn--large">Pricing</NavLink>
+      <NavLink href="#pricing" className="a-btn a-btn--large">
+        Pricing
+      </NavLink>
       <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
       <Register className="a-btn a-btn--medium">Register</Register>
     </Nav>
@@ -136,7 +200,7 @@ export default () => (
         </p>
         <CallToAction className="a-btn a-btn--large">Start now</CallToAction>
       </Hero>
-      <HowItWorks>
+      <HowItWorks id="how-it-works">
         <h2 className="a-title--large">How it works</h2>
         <Steps>
           <Step>
@@ -168,11 +232,78 @@ export default () => (
           </Step>
         </Steps>
       </HowItWorks>
-
-      <HowItWorks>
+      <Pricing id="pricing">
         <h2 className="a-title--large">Pricing</h2>
-        <Steps></Steps>
-      </HowItWorks>
+        <PrincingWrapper>
+          <PricingItem>
+            <h3 className="a-text--large">Startup - $20/mo</h3>
+            <p className="a-text--medium">
+              Up to 1 Million <br />
+              validated events
+            </p>
+            <SecondaryCallToAction className="a-btn a-btn--medium">
+              Subscribe
+            </SecondaryCallToAction>
+          </PricingItem>
+          <PricingItem>
+            <h3 className="a-text--large">Growth - $50/mo</h3>
+            <p className="a-text--medium">
+              Up to 5 Million <br />
+              validated events
+            </p>
+            <SecondaryCallToAction className="a-btn a-btn--medium">
+              Subscribe
+            </SecondaryCallToAction>
+          </PricingItem>
+          <PricingItem>
+            <h3 className="a-text--large">Enterprise</h3>
+            <p className="a-text--medium">
+              More than 5 Million <br />
+              validated events
+            </p>
+            <SecondaryCallToAction className="a-btn a-btn--medium">
+              Contact us
+            </SecondaryCallToAction>
+          </PricingItem>
+        </PrincingWrapper>
+      </Pricing>
+
+      <WhoAreWe>
+        <h2 className="a-title--large">Who are we?</h2>
+
+        <WhoAreWeWrapper>
+          <Profile>
+            <ProfilePicture src="profile-luiz.jpeg"></ProfilePicture>
+            <p className="a-text--large">Luiz Parreira</p>
+            <div>
+              <a href="https://twitter.com/luizfgparreira">
+                <SocialIcon src="twitter.png"></SocialIcon>
+              </a>
+              <a href="https://www.linkedin.com/in/luizfgparreira/">
+                <SocialIcon src="linkedin.png"></SocialIcon>
+              </a>
+              <a href="https://github.com/luizParreira">
+                <SocialIcon src="github.png"></SocialIcon>
+              </a>
+            </div>
+          </Profile>
+          <Profile>
+            <ProfilePicture src="profile-bruno.jpg"></ProfilePicture>
+            <p className="a-text--large">Bruno Gomes</p>
+            <div>
+              <a href="https://twitter.com/brunojabs">
+                <SocialIcon src="twitter.png"></SocialIcon>
+              </a>
+              <a href="https://www.linkedin.com/in/brunogomessilva/">
+                <SocialIcon src="linkedin.png"></SocialIcon>
+              </a>
+              <a href="https://github.com/brunojabs">
+                <SocialIcon src="github.png"></SocialIcon>
+              </a>
+            </div>
+          </Profile>
+        </WhoAreWeWrapper>
+      </WhoAreWe>
     </Sections>
   </Container>
 )
