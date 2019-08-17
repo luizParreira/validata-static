@@ -34,7 +34,7 @@ const LogoLink = styled(NavLink)`
   margin-right: auto;
 `
 
-const Register = styled.button`
+const Register = styled.a`
   background-color: var(--color-space-1000);
   border-color: var(--color-space-800);
   color: var(--color-space-100);
@@ -69,7 +69,7 @@ const Highlight = styled.span`
   color: transparent;
 `
 
-const CallToAction = styled.button`
+const CallToAction = styled.a`
   margin: 50px 0;
   background: var(--color-sun-300);
   border: 2px solid transparent;
@@ -220,7 +220,9 @@ export default () => (
         Pricing
       </NavLink>
       <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
-      <Register className="a-btn a-btn--medium">Register</Register>
+      <Register className="a-btn a-btn--medium" href="#contact-form">
+        Register
+      </Register>
     </Nav>
     <Sections>
       <Hero>
@@ -235,7 +237,9 @@ export default () => (
           Have a clear view of what can go wrong in your data collection
           pipeline.
         </p>
-        <CallToAction className="a-btn a-btn--large">Start now</CallToAction>
+        <CallToAction className="a-btn a-btn--large" href="#contact-form">
+          Start now
+        </CallToAction>
       </Hero>
       <HowItWorks id="how-it-works">
         <h2 className="a-title--large">How it works</h2>
@@ -278,7 +282,10 @@ export default () => (
               Up to 1 Million <br />
               validated events
             </p>
-            <SecondaryCallToAction className="a-btn a-btn--medium">
+            <SecondaryCallToAction
+              className="a-btn a-btn--medium"
+              href="#contact-form"
+            >
               Subscribe
             </SecondaryCallToAction>
           </PricingItem>
@@ -288,7 +295,10 @@ export default () => (
               Up to 5 Million <br />
               validated events
             </p>
-            <SecondaryCallToAction className="a-btn a-btn--medium">
+            <SecondaryCallToAction
+              className="a-btn a-btn--medium"
+              href="#contact-form"
+            >
               Subscribe
             </SecondaryCallToAction>
           </PricingItem>
@@ -298,7 +308,10 @@ export default () => (
               More than 5 Million <br />
               validated events
             </p>
-            <SecondaryCallToAction className="a-btn a-btn--medium">
+            <SecondaryCallToAction
+              className="a-btn a-btn--medium"
+              href="#contact-form"
+            >
               Contact us
             </SecondaryCallToAction>
           </PricingItem>
@@ -341,7 +354,7 @@ export default () => (
           </Profile>
         </WhoAreWeWrapper>
       </WhoAreWe>
-      <Contact>
+      <Contact id="contact-form">
         <HandleInputEvents />
         <h2 className="a-title--large">Contact us</h2>
 
