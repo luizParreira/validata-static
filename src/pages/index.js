@@ -188,6 +188,16 @@ const InputWrapper = styled.div`
 `
 
 const Input = styled.input``
+const Submit = styled.button`
+  margin: 50px 0;
+  background: var(--color-sun-300);
+  color: var(--color-space-1000);
+  border: 2px solid transparent;
+
+  &:hover {
+    background: var(--color-sun-500);
+  }
+`
 
 export default () => (
   <Container>
@@ -396,9 +406,9 @@ export default () => (
             </label>
           </InputWrapper>
 
-          <SecondaryCallToAction className="a-btn a-btn--large" type="submit">
+          <Submit className="a-btn a-btn--large" type="submit">
             Submit
-          </SecondaryCallToAction>
+          </Submit>
         </ContactForm>
       </Contact>
     </Sections>
