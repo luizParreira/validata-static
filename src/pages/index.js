@@ -345,7 +345,11 @@ export default () => (
         <HandleInputEvents />
         <h2 className="a-title--large">Contact us</h2>
 
-        <ContactForm>
+        <ContactForm
+          method="post"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+        >
           <InputWrapper className="a-input a-input--large">
             <Input id="name" type="text" aria-labelledby="name" />
             <label id="name" htmlFor="name">
