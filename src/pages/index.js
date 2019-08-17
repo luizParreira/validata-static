@@ -346,6 +346,7 @@ export default () => (
         <h2 className="a-title--large">Contact us</h2>
 
         <ContactForm
+          name="contact"
           method="post"
           netlify-honeypot="bot-field"
           data-netlify="true"
