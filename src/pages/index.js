@@ -350,7 +350,9 @@ export default () => (
           method="post"
           netlify-honeypot="bot-field"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="bot-field" />
           <InputWrapper className="a-input a-input--large">
             <Input id="name" name="name" type="text" aria-labelledby="name" />
             <label id="name" htmlFor="name">
