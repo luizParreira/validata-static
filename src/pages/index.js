@@ -4,6 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import HandleInputEvents from "../../static/input-label"
 import { Helmet } from "react-helmet"
+import { device } from "../media-queries"
 
 const Container = styled.div`
   display: flex;
@@ -28,10 +29,18 @@ const NavLink = styled.a`
   &:hover {
     color: var(--color-space-500);
   }
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `
 
 const LogoLink = styled(NavLink)`
   margin-right: auto;
+
+  @media ${device.mobile} {
+    display: initial;
+  }
 `
 
 const Register = styled.a`
@@ -41,6 +50,10 @@ const Register = styled.a`
   &:hover {
     background-color: var(--color-sun-500);
     border-color: var(--color-sun-300);
+  }
+
+  @media ${device.mobile} {
+    display: none;
   }
 `
 
@@ -56,11 +69,24 @@ const Section = styled.div`
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  justify-content: space-between;
 `
 
 const Hero = styled(Section)`
-  padding-top: 60px;
   justify-content: space-around;
+  padding: 60px 8px;
+`
+
+const HeroTitle = styled.h1`
+  @media ${device.mobile} {
+    font-size: 40px;
+  }
+`
+
+const HeroSubtitle = styled.p`
+  @media ${device.mobile} {
+    font-size: 24px;
+  }
 `
 
 const Highlight = styled.span`
@@ -80,14 +106,11 @@ const CallToAction = styled.a`
   }
 `
 
-const HowItWorks = styled(Section)`
-  padding: 50px;
-  justify-content: space-between;
-`
+const HowItWorks = styled(Section)``
 
 const Steps = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
   margin: 50px 0;
   max-width: 1200px;
@@ -103,17 +126,29 @@ const Step = styled.div`
   align-items: center;
   overflow: auto;
   border-radius: 5%;
+  min-width: 300px;
   & > * {
     margin: 5px 0;
+  }
+
+  @media ${device.mobile} {
+    flex: 0;
+    margin: 24px 0;
   }
 `
 
 const Arrow = styled.i`
   align-self: center;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `
 
-const Pricing = styled(HowItWorks)``
-const PrincingWrapper = styled(Steps)``
+const Pricing = styled(Section)``
+const PrincingWrapper = styled(Steps)`
+  display: flex;
+`
 
 const PricingItem = styled.div`
   position: relative;
@@ -130,6 +165,12 @@ const PricingItem = styled.div`
   & > * {
     margin: 10px 0;
   }
+
+  @media ${device.mobile} {
+    flex: 0;
+    margin: 24px 0;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -148,13 +189,18 @@ const SecondaryCallToAction = styled(CallToAction)`
   margin: 10px 0;
 `
 
-const WhoAreWe = styled(HowItWorks)``
+const WhoAreWe = styled(Section)``
 const WhoAreWeWrapper = styled(Steps)``
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   & > * {
     margin: 10px 0;
+  }
+
+  @media ${device.mobile} {
+    margin: 24px 0;
   }
 `
 const ProfilePicture = styled.img`
@@ -171,7 +217,7 @@ const SocialIcon = styled.img`
   }
 `
 
-const Contact = styled(HowItWorks)``
+const Contact = styled(Section)``
 const ContactForm = styled.form``
 
 const InputWrapper = styled.div`
@@ -184,6 +230,11 @@ const InputWrapper = styled.div`
 
   & > input:focus + label {
     color: var(--color-sun-500);
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+    margin: 8px;
   }
 `
 
@@ -237,17 +288,17 @@ export default () => (
     </Nav>
     <Sections>
       <Hero>
-        <h1 className="a-text--display">
+        <HeroTitle className="a-text--display">
           Validate your
           <br />
           <Highlight>Analytics Events</Highlight>
-        </h1>
-        <p className="a-text--secondary-large">
+        </HeroTitle>
+        <HeroSubtitle className="a-text--secondary-large">
           Validate you are collecting the correct data from your products.
           <br />
           Have a clear view of what can go wrong in your data collection
           pipeline.
-        </p>
+        </HeroSubtitle>
         <CallToAction className="a-btn a-btn--large" href="#contact-form">
           Start now
         </CallToAction>
@@ -264,7 +315,6 @@ export default () => (
             </p>
           </Step>
           <Arrow className="a-icon a-icon__drop-right a-icon--size-large" />
-
           <Step>
             <i className="a-icon a-icon__sliders a-icon--size-large" />
             <h3 className="a-text--large">Specify events</h3>
