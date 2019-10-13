@@ -282,8 +282,11 @@ export default () => (
         Pricing
       </NavLink>
       <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
-      <Register className="a-btn a-btn--medium" href="#contact-form">
-        Register
+      <Register
+        className="a-btn a-btn--medium"
+        href="http://localhost:3000/login"
+      >
+        Login
       </Register>
     </Nav>
     <Sections>
@@ -296,10 +299,12 @@ export default () => (
         <HeroSubtitle className="a-text--secondary-large">
           Validate you are collecting the correct data from your products.
           <br />
-          Have a clear view of what can go wrong in your data collection
-          pipeline.
+          Have one source of truth for your analytics data.
         </HeroSubtitle>
-        <CallToAction className="a-btn a-btn--large" href="#contact-form">
+        <CallToAction
+          className="a-btn a-btn--large"
+          href="http://localhost:3000/register"
+        >
           Start now
         </CallToAction>
       </Hero>
@@ -310,8 +315,8 @@ export default () => (
             <i className="a-icon a-icon__additional a-icon--size-large" />
             <h3 className="a-text--large">Create a project</h3>
             <p className="a-text--medium">
-              Create a Project (web, mobile, blog) and register our webhook with
-              your analytics provider
+              Create a source (web, mobile, blog) and integrate validata in your
+              analytics pipeline
             </p>
           </Step>
           <Arrow className="a-icon a-icon__drop-right a-icon--size-large" />
@@ -338,42 +343,42 @@ export default () => (
         <h2 className="a-title--large">Pricing</h2>
         <PrincingWrapper>
           <PricingItem>
-            <h3 className="a-text--large">Startup - $20/mo</h3>
+            <h3 className="a-text--large">Free</h3>
             <p className="a-text--medium">
-              Up to 1 Million <br />
+              Up to 100k <br />
               validated events
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="#contact-form"
+              href="http://localhost:3000/register"
             >
               Subscribe
             </SecondaryCallToAction>
           </PricingItem>
           <PricingItem>
-            <h3 className="a-text--large">Growth - $50/mo</h3>
+            <h3 className="a-text--large">Startup - $50/mo</h3>
             <p className="a-text--medium">
               Up to 5 Million <br />
               validated events
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="#contact-form"
+              href="http://localhost:3000/register"
             >
               Subscribe
             </SecondaryCallToAction>
           </PricingItem>
           <PricingItem>
-            <h3 className="a-text--large">Enterprise</h3>
+            <h3 className="a-text--large">Growth - $100/mo</h3>
             <p className="a-text--medium">
               More than 5 Million <br />
               validated events
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="#contact-form"
+              href="http://localhost:3000/register"
             >
-              Contact us
+              Subscribe
             </SecondaryCallToAction>
           </PricingItem>
         </PrincingWrapper>
@@ -415,52 +420,6 @@ export default () => (
           </Profile>
         </WhoAreWeWrapper>
       </WhoAreWe>
-      <Contact id="contact-form">
-        <HandleInputEvents />
-        <h2 className="a-title--large">Contact us</h2>
-
-        <ContactForm
-          name="contact"
-          method="post"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="bot-field" />
-          <InputWrapper className="a-input a-input--large">
-            <Input id="name" name="name" type="text" aria-labelledby="name" />
-            <label id="name" htmlFor="name">
-              Name
-            </label>
-          </InputWrapper>
-          <InputWrapper className="a-input a-input--large">
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              aria-labelledby="email"
-            />
-            <label id="email" htmlFor="email">
-              Email
-            </label>
-          </InputWrapper>
-          <InputWrapper className="a-input a-input--large">
-            <Input
-              id="company-name"
-              type="text"
-              name="company-name"
-              aria-labelledby="company-name"
-            />
-            <label id="company-name" htmlFor="company-name">
-              Company name
-            </label>
-          </InputWrapper>
-
-          <Submit className="a-btn a-btn--large" type="submit">
-            Submit
-          </Submit>
-        </ContactForm>
-      </Contact>
     </Sections>
   </Container>
 )
