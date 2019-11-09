@@ -284,7 +284,7 @@ export default () => (
       <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
       <Register
         className="a-btn a-btn--medium"
-        href="http://localhost:3000/login"
+        href="https://05310947.ngrok.io/login"
       >
         Login
       </Register>
@@ -303,7 +303,7 @@ export default () => (
         </HeroSubtitle>
         <CallToAction
           className="a-btn a-btn--large"
-          href="http://localhost:3000/register"
+          href="https://05310947.ngrok.io/register"
         >
           Start now
         </CallToAction>
@@ -350,7 +350,7 @@ export default () => (
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="http://localhost:3000/register"
+              href="https://05310947.ngrok.io/register"
             >
               Subscribe
             </SecondaryCallToAction>
@@ -363,7 +363,7 @@ export default () => (
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="http://localhost:3000/register"
+              href="https://05310947.ngrok.io/register"
             >
               Subscribe
             </SecondaryCallToAction>
@@ -376,7 +376,7 @@ export default () => (
             </p>
             <SecondaryCallToAction
               className="a-btn a-btn--medium"
-              href="http://localhost:3000/register"
+              href="https://05310947.ngrok.io/register"
             >
               Subscribe
             </SecondaryCallToAction>
