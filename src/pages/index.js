@@ -2,7 +2,6 @@ import "../../static/reset.css"
 import "@magnetis/astro"
 import React from "react"
 import styled from "styled-components"
-import HandleInputEvents from "../../static/input-label"
 import { Helmet } from "react-helmet"
 import { device } from "../media-queries"
 
@@ -113,7 +112,7 @@ const Steps = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   margin: 50px 0;
-  max-width: 1200px;
+  max-width: 100%;
 `
 
 const Step = styled.div`
@@ -126,7 +125,7 @@ const Step = styled.div`
   align-items: center;
   overflow: auto;
   border-radius: 5%;
-  min-width: 300px;
+  min-width: 200px;
   & > * {
     margin: 5px 0;
   }
@@ -217,209 +216,147 @@ const SocialIcon = styled.img`
   }
 `
 
-const Contact = styled(Section)``
-const ContactForm = styled.form``
+export default () => {
+  const url = process.env.GATSBY_FRONTEND_HOST
 
-const InputWrapper = styled.div`
-  width: 400px;
-  margin: 10px 0;
+  const login = `${url}/login`
+  const signup = `${url}/register`
+  return (
+    <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Validata</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#ffffff" />
+      </Helmet>
+      <Nav>
+        <LogoLink className="a-btn a-btn--large">Validata</LogoLink>
+        <NavLink href="#how-it-works" className="a-btn a-btn--large">
+          How it Works
+        </NavLink>
+        <NavLink href="#pricing" className="a-btn a-btn--large">
+          Pricing
+        </NavLink>
+        <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
+        <Register className="a-btn a-btn--medium" href={login}>
+          Login
+        </Register>
+      </Nav>
+      <Sections>
+        <Hero>
+          <HeroTitle className="a-text--display">
+            Validate your
+            <br />
+            <Highlight>Analytics Events</Highlight>
+          </HeroTitle>
+          <HeroSubtitle className="a-text--secondary-large">
+            Validate you are collecting the correct data from your products.
+            <br />
+            Have one source of truth for your analytics data.
+          </HeroSubtitle>
+          <CallToAction className="a-btn a-btn--large" href={signup}>
+            Start now
+          </CallToAction>
+        </Hero>
+        <HowItWorks id="how-it-works">
+          <h2 className="a-title--large">How it works</h2>
+          <Steps>
+            <Step>
+              <i className="a-icon a-icon--additional a-icon--size-medium" />
+              <h3 className="a-text--medium">Create source</h3>
+            </Step>
+            <Arrow className="a-icon a-icon--drop-right a-icon--size-medium" />
+            <Step>
+              <i className="a-icon a-icon--laptop a-icon--size-medium" />
+              <h3 className="a-text--medium">Integrate</h3>
+            </Step>
+            <Arrow className="a-icon a-icon--drop-right a-icon--size-medium" />
+            <Step>
+              <i className="a-icon a-icon--sliders a-icon--size-medium" />
+              <h3 className="a-text--medium">Confirm events</h3>
+            </Step>
+            <Arrow className="a-icon a-icon--drop-right a-icon--size-medium" />
+            <Step>
+              <i className="a-icon a-icon--eye-open a-icon--size-medium" />
+              <h3 className="a-text--medium">View Failures</h3>
+            </Step>
+          </Steps>
+        </HowItWorks>
+        <Pricing id="pricing">
+          <h2 className="a-title--large">Pricing</h2>
+          <PrincingWrapper>
+            <PricingItem>
+              <h3 className="a-text--large">Startup - $50/mo</h3>
+              <p className="a-text--medium">
+                Up to 5 Million <br />
+                validated events
+              </p>
+              <p className="a-text--medium">Free trial (1 month)</p>
+              <SecondaryCallToAction
+                className="a-btn a-btn--medium"
+                href={signup}
+              >
+                Subscribe
+              </SecondaryCallToAction>
+            </PricingItem>
+            <PricingItem>
+              <h3 className="a-text--large">Growth - $100/mo</h3>
+              <p className="a-text--medium">
+                More than 5 Million <br />
+                validated events
+              </p>
+              <p className="a-text--medium">Free trial (1 month)</p>
+              <SecondaryCallToAction
+                className="a-btn a-btn--medium"
+                href={signup}
+              >
+                Subscribe
+              </SecondaryCallToAction>
+            </PricingItem>
+          </PrincingWrapper>
+        </Pricing>
 
-  & > input:focus {
-    border-color: var(--color-sun-500);
-  }
+        <WhoAreWe>
+          <h2 className="a-title--large">Who are we?</h2>
 
-  & > input:focus + label {
-    color: var(--color-sun-500);
-  }
-
-  @media ${device.mobile} {
-    width: 100%;
-    margin: 8px;
-  }
-`
-
-const Input = styled.input``
-const Submit = styled.button`
-  margin: 50px 0;
-  background: var(--color-sun-300);
-  color: var(--color-space-1000);
-  border: 2px solid transparent;
-
-  &:hover {
-    background: var(--color-sun-500);
-  }
-`
-
-export default () => (
-  <Container>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>Validata</title>
-      <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="theme-color" content="#ffffff" />
-    </Helmet>
-    <Nav>
-      <LogoLink className="a-btn a-btn--large">Validata</LogoLink>
-      <NavLink href="#how-it-works" className="a-btn a-btn--large">
-        How it Works
-      </NavLink>
-      <NavLink href="#pricing" className="a-btn a-btn--large">
-        Pricing
-      </NavLink>
-      <NavLink className="a-btn a-btn--large">Who are we?</NavLink>
-      <Register
-        className="a-btn a-btn--medium"
-        href="https://05310947.ngrok.io/login"
-      >
-        Login
-      </Register>
-    </Nav>
-    <Sections>
-      <Hero>
-        <HeroTitle className="a-text--display">
-          Validate your
-          <br />
-          <Highlight>Analytics Events</Highlight>
-        </HeroTitle>
-        <HeroSubtitle className="a-text--secondary-large">
-          Validate you are collecting the correct data from your products.
-          <br />
-          Have one source of truth for your analytics data.
-        </HeroSubtitle>
-        <CallToAction
-          className="a-btn a-btn--large"
-          href="https://05310947.ngrok.io/register"
-        >
-          Start now
-        </CallToAction>
-      </Hero>
-      <HowItWorks id="how-it-works">
-        <h2 className="a-title--large">How it works</h2>
-        <Steps>
-          <Step>
-            <i className="a-icon a-icon__additional a-icon--size-large" />
-            <h3 className="a-text--large">Create a project</h3>
-            <p className="a-text--medium">
-              Create a source (web, mobile, blog) and integrate validata in your
-              analytics pipeline
-            </p>
-          </Step>
-          <Arrow className="a-icon a-icon__drop-right a-icon--size-large" />
-          <Step>
-            <i className="a-icon a-icon__sliders a-icon--size-large" />
-            <h3 className="a-text--large">Specify events</h3>
-            <p className="a-text--medium">
-              Create the specifications for each event by setting what data
-              would you like us to validate
-            </p>
-          </Step>
-          <Arrow className="a-icon a-icon__drop-right a-icon--size-large" />
-          <Step>
-            <i className="a-icon a-icon__mail a-icon--size-large" />
-            <h3 className="a-text--large">Be notified</h3>
-            <p className="a-text--medium">
-              We start validate events as they come and notify you if there is
-              anything wrong
-            </p>
-          </Step>
-        </Steps>
-      </HowItWorks>
-      <Pricing id="pricing">
-        <h2 className="a-title--large">Pricing</h2>
-        <PrincingWrapper>
-          <PricingItem>
-            <h3 className="a-text--large">Free</h3>
-            <p className="a-text--medium">
-              Up to 100k <br />
-              validated events
-            </p>
-            <SecondaryCallToAction
-              className="a-btn a-btn--medium"
-              href="https://05310947.ngrok.io/register"
-            >
-              Subscribe
-            </SecondaryCallToAction>
-          </PricingItem>
-          <PricingItem>
-            <h3 className="a-text--large">Startup - $50/mo</h3>
-            <p className="a-text--medium">
-              Up to 5 Million <br />
-              validated events
-            </p>
-            <SecondaryCallToAction
-              className="a-btn a-btn--medium"
-              href="https://05310947.ngrok.io/register"
-            >
-              Subscribe
-            </SecondaryCallToAction>
-          </PricingItem>
-          <PricingItem>
-            <h3 className="a-text--large">Growth - $100/mo</h3>
-            <p className="a-text--medium">
-              More than 5 Million <br />
-              validated events
-            </p>
-            <SecondaryCallToAction
-              className="a-btn a-btn--medium"
-              href="https://05310947.ngrok.io/register"
-            >
-              Subscribe
-            </SecondaryCallToAction>
-          </PricingItem>
-        </PrincingWrapper>
-      </Pricing>
-
-      <WhoAreWe>
-        <h2 className="a-title--large">Who are we?</h2>
-
-        <WhoAreWeWrapper>
-          <Profile>
-            <ProfilePicture src="profile-luiz.jpeg"></ProfilePicture>
-            <p className="a-text--large">Luiz Parreira</p>
-            <div>
-              <a href="https://twitter.com/luizfgparreira">
-                <SocialIcon src="twitter.png"></SocialIcon>
-              </a>
-              <a href="https://www.linkedin.com/in/luizfgparreira/">
-                <SocialIcon src="linkedin.png"></SocialIcon>
-              </a>
-              <a href="https://github.com/luizParreira">
-                <SocialIcon src="github.png"></SocialIcon>
-              </a>
-            </div>
-          </Profile>
-          <Profile>
-            <ProfilePicture src="profile-bruno.jpg"></ProfilePicture>
-            <p className="a-text--large">Bruno Gomes</p>
-            <div>
-              <a href="https://twitter.com/brunojabs">
-                <SocialIcon src="twitter.png"></SocialIcon>
-              </a>
-              <a href="https://www.linkedin.com/in/brunogomessilva/">
-                <SocialIcon src="linkedin.png"></SocialIcon>
-              </a>
-              <a href="https://github.com/brunojabs">
-                <SocialIcon src="github.png"></SocialIcon>
-              </a>
-            </div>
-          </Profile>
-        </WhoAreWeWrapper>
-      </WhoAreWe>
-    </Sections>
-  </Container>
-)
+          <WhoAreWeWrapper>
+            <Profile>
+              <ProfilePicture src="profile-luiz.jpeg"></ProfilePicture>
+              <p className="a-text--large">Luiz Parreira</p>
+              <div>
+                <a href="https://twitter.com/luizfgparreira">
+                  <SocialIcon src="twitter.png"></SocialIcon>
+                </a>
+                <a href="https://www.linkedin.com/in/luizfgparreira/">
+                  <SocialIcon src="linkedin.png"></SocialIcon>
+                </a>
+                <a href="https://github.com/luizParreira">
+                  <SocialIcon src="github.png"></SocialIcon>
+                </a>
+              </div>
+            </Profile>
+          </WhoAreWeWrapper>
+        </WhoAreWe>
+      </Sections>
+    </Container>
+  )
+}
